@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+
+    <button onclick="playGame(0)">Rock</button>
+    <button onclick="playGame(1)">Paper</button>
+    <button onclick="playGame(2)">Scissors</button>
+
+    <p id="result">Result: </p>
+
+    <script>
+        function playGame(userChoice) {
+            var choices = ['Rock', 'Paper', 'Scissors'];
+            var computerChoice = Math.floor(Math.random() * 3);
+
+            var resultMessage = "Result: ";
+
+            if (userChoice === computerChoice) {
+                resultMessage += "It's a tie!";
+            } else if (
+                (userChoice === 0 && computerChoice === 2) ||
+                (userChoice === 1 && computerChoice === 0) ||
+                (userChoice === 2 && computerChoice === 1)
+            ) {
+                resultMessage += "You win! " + choices[userChoice] + " beats " + choices[computerChoice] + ".";
+            } else {
+                resultMessage += "You lose! " + choices[computerChoice] + " beats " + choices[userChoice] + ".";
+            }
+
+            document.getElementById("result").innerText = resultMessage;
+        }
+    </script>
+</body>
+</html>
